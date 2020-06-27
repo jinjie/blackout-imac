@@ -1,0 +1,13 @@
+#!/usr/bin/env osascript
+
+tell application "Finder"
+    open (((container of (path to me)) as text) & "blackout.jpg")
+
+    delay 1
+
+    tell application "System Events" to tell process "Preview"
+        set value of attribute "AXFullScreen" of window 1 to true
+    end tell
+
+    do shell script "brightness 0"
+end tell
